@@ -102,7 +102,7 @@ WaterMe/
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/WaterMe.git
+git clone https://github.com/bertramchabu/WaterMe.git
 cd WaterMe
 ```
 
