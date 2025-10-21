@@ -1,22 +1,15 @@
-//
-//  WaterMeApp.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
-
 import SwiftUI
 import SwiftData
 
-/// Main app entry point
+
 @main
 struct WaterMeApp: App {
-    // SwiftData model container
+ 
     let modelContainer: ModelContainer
 
     init() {
         do {
-            // Configure the model container with all model types
+            
             let schema = Schema([
                 WaterEntry.self,
                 UserProfile.self,
@@ -33,7 +26,7 @@ struct WaterMeApp: App {
                 configurations: [modelConfiguration]
             )
 
-            // Configure DataManager with the model context
+            
             Task { @MainActor in
                 DataManager.shared.configure(with: modelContainer.mainContext)
             }
@@ -53,7 +46,7 @@ struct WaterMeApp: App {
         }
     }
 
-    // MARK: - App Setup
+    
 
     /// Performs initial app setup
     private func setupApp() {
@@ -64,7 +57,7 @@ struct WaterMeApp: App {
         trackAppLaunch()
     }
 
-    /// Configures the app's appearance
+    
     private func setupAppearance() {
         // Configure navigation bar appearance
         let appearance = UINavigationBarAppearance()
@@ -79,7 +72,7 @@ struct WaterMeApp: App {
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
     }
 
-    /// Tracks app launches for analytics
+    
     private func trackAppLaunch() {
         let defaults = UserDefaults.standard
 

@@ -1,14 +1,7 @@
-//
-//  UserProfile.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
-
 import Foundation
 import SwiftData
 
-/// Represents the user's activity level for hydration calculations
+
 enum ActivityLevel: String, Codable, CaseIterable {
     case sedentary = "Sedentary"
     case lightlyActive = "Lightly Active"
@@ -16,7 +9,7 @@ enum ActivityLevel: String, Codable, CaseIterable {
     case veryActive = "Very Active"
     case extraActive = "Extra Active"
 
-    /// Multiplier for calculating water needs based on activity level
+    
     var multiplier: Double {
         switch self {
         case .sedentary: return 30.0
@@ -27,7 +20,7 @@ enum ActivityLevel: String, Codable, CaseIterable {
         }
     }
 
-    /// Description of the activity level
+    
     var description: String {
         switch self {
         case .sedentary:
@@ -44,12 +37,12 @@ enum ActivityLevel: String, Codable, CaseIterable {
     }
 }
 
-/// Unit system for water measurement
+
 enum WaterUnit: String, Codable, CaseIterable {
     case milliliters = "ml"
     case fluidOunces = "fl oz"
 
-    /// Conversion factor to milliliters
+
     var toMilliliters: Double {
         switch self {
         case .milliliters: return 1.0
@@ -57,7 +50,7 @@ enum WaterUnit: String, Codable, CaseIterable {
         }
     }
 
-    /// Converts value to the user's preferred unit
+
     func convert(from milliliters: Double) -> Double {
         switch self {
         case .milliliters:
@@ -68,22 +61,22 @@ enum WaterUnit: String, Codable, CaseIterable {
     }
 }
 
-/// Stores user profile information for personalized hydration goals
-/// Uses SwiftData for persistence
+
+
 @Model
 final class UserProfile {
     var id: UUID
     var name: String
-    var weight: Double // in kilograms
+    var weight: Double 
     var activityLevel: ActivityLevel
     var preferredUnit: WaterUnit
-    var customGoal: Double? // in milliliters (optional override)
+    var customGoal: Double? 
     var wakeTime: Date?
     var sleepTime: Date?
-    var reminderInterval: Int // minutes between reminders
+    var reminderInterval: Int 
     var isNotificationsEnabled: Bool
 
-    /// Initializes a user profile with default values
+
     init(
         name: String = "User",
         weight: Double = 70.0,
@@ -108,26 +101,26 @@ final class UserProfile {
     }
 }
 
-// MARK: - Computed Properties
+
 extension UserProfile {
-    /// Calculates recommended daily water intake in milliliters
-    /// Formula: weight (kg) × activity multiplier
+
+
     var recommendedDailyGoal: Double {
         weight * activityLevel.multiplier
     }
 
-    /// Returns the active daily goal (custom or recommended)
+
     var dailyGoal: Double {
         customGoal ?? recommendedDailyGoal
     }
 
-    /// Formats the daily goal in the user's preferred unit
+
     var formattedDailyGoal: String {
         let converted = preferredUnit.convert(from: dailyGoal)
         return String(format: "%.0f %@", converted, preferredUnit.rawValue)
     }
 
-    /// Quick add amounts in milliliters
+
     var quickAddAmounts: [Double] {
         switch preferredUnit {
         case .milliliters:
@@ -139,9 +132,9 @@ extension UserProfile {
     }
 }
 
-// MARK: - Sample Data
+
 extension UserProfile {
-    /// Sample profile for previews
+
     static var sample: UserProfile {
         UserProfile(
             name: "Alex",

@@ -1,14 +1,7 @@
-//
-//  HealthKitManager.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
-
 import Foundation
 import HealthKit
 
-/// Custom errors for HealthKit operations
+
 enum HealthKitError: Error, LocalizedError {
     case notAvailable
     case permissionDenied
@@ -29,8 +22,8 @@ enum HealthKitError: Error, LocalizedError {
     }
 }
 
-/// Manages HealthKit integration for water intake tracking
-/// Syncs water consumption data with Apple Health app
+
+
 @MainActor
 final class HealthKitManager: ObservableObject {
     static let shared = HealthKitManager()
@@ -44,10 +37,10 @@ final class HealthKitManager: ObservableObject {
         isAvailable = HKHealthStore.isHealthDataAvailable()
     }
 
-    // MARK: - Permission Management
 
-    /// Requests HealthKit authorization
-    /// - Returns: True if authorization granted
+
+
+
     func requestAuthorization() async throws -> Bool {
         guard isAvailable else {
             throw HealthKitError.notAvailable
@@ -73,7 +66,7 @@ final class HealthKitManager: ObservableObject {
         }
     }
 
-    /// Checks current authorization status
+
     func checkAuthorizationStatus() async {
         guard isAvailable,
               let waterType = HKQuantityType.quantityType(forIdentifier: .dietaryWater) else {
@@ -85,12 +78,7 @@ final class HealthKitManager: ObservableObject {
         isAuthorized = status == .sharingAuthorized
     }
 
-    // MARK: - Save Water Intake
-
-    /// Saves water intake to HealthKit
-    /// - Parameters:
-    ///   - amount: Amount of water in milliliters
-    ///   - date: When the water was consumed
+    
     func saveWaterIntake(amount: Double, date: Date = Date()) async throws {
         guard isAvailable else {
             throw HealthKitError.notAvailable
@@ -122,11 +110,7 @@ final class HealthKitManager: ObservableObject {
         }
     }
 
-    // MARK: - Read Water Intake
-
-    /// Reads water intake from HealthKit for a specific date
-    /// - Parameter date: The date to read data for
-    /// - Returns: Total water intake in milliliters
+    
     func readWaterIntake(for date: Date) async throws -> Double {
         guard isAvailable else {
             throw HealthKitError.notAvailable
@@ -177,11 +161,7 @@ final class HealthKitManager: ObservableObject {
         }
     }
 
-    /// Reads water intake for a date range
-    /// - Parameters:
-    ///   - startDate: Start of the range
-    ///   - endDate: End of the range
-    /// - Returns: Dictionary of dates to water intake amounts
+    
     func readWaterIntake(from startDate: Date, to endDate: Date) async throws -> [Date: Double] {
         guard isAvailable else {
             throw HealthKitError.notAvailable
@@ -245,10 +225,10 @@ final class HealthKitManager: ObservableObject {
         }
     }
 
-    // MARK: - Delete Water Intake
+    
 
-    /// Deletes a water intake sample from HealthKit
-    /// - Parameter date: The date of the sample to delete
+    
+    
     func deleteWaterIntake(for date: Date) async throws {
         guard isAvailable else {
             throw HealthKitError.notAvailable
@@ -301,10 +281,7 @@ final class HealthKitManager: ObservableObject {
         }
     }
 
-    // MARK: - Sync with App Data
-
-    /// Syncs app water entries with HealthKit
-    /// - Parameter entries: Water entries to sync
+    
     func syncEntries(_ entries: [WaterEntry]) async throws {
         for entry in entries {
             try await saveWaterIntake(amount: entry.amount, date: entry.timestamp)

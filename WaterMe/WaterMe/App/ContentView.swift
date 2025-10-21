@@ -1,13 +1,7 @@
-//
-//  ContentView.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
-
 import SwiftUI
 
-/// Main content view with tab navigation
+
+
 struct ContentView: View {
     @State private var selectedTab = 0
 
@@ -38,7 +32,7 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Preview
+
 
 #Preview {
     ContentView()

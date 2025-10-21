@@ -1,14 +1,7 @@
-//
-//  DataManager.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
-
 import Foundation
 import SwiftData
 
-/// Custom errors for data operations
+
 enum DataError: Error, LocalizedError {
     case invalidAmount
     case saveFailed
@@ -32,28 +25,19 @@ enum DataError: Error, LocalizedError {
     }
 }
 
-/// Manages all data operations for the app using SwiftData
-/// Implements singleton pattern for centralized data management
+
+
 @MainActor
 final class DataManager: ObservableObject {
     static let shared = DataManager()
 
     private var modelContext: ModelContext?
 
-    /// Configures the data manager with a model context
-    /// - Parameter context: The SwiftData model context
+    
     func configure(with context: ModelContext) {
         self.modelContext = context
     }
 
-    // MARK: - Water Entry Operations
-
-    /// Adds a new water entry
-    /// - Parameters:
-    ///   - amount: Amount of water in milliliters
-    ///   - timestamp: When the water was consumed
-    ///   - note: Optional note
-    /// - Throws: DataError if validation fails or save fails
     func addWaterEntry(amount: Double, timestamp: Date = Date(), note: String? = nil) async throws {
         guard amount > 0 else {
             throw DataError.invalidAmount
@@ -75,9 +59,7 @@ final class DataManager: ObservableObject {
         }
     }
 
-    /// Fetches water entries for a specific date
-    /// - Parameter date: The date to fetch entries for
-    /// - Returns: Array of water entries
+    
     func fetchEntries(for date: Date) async throws -> [WaterEntry] {
         guard let context = modelContext else {
             throw DataError.loadFailed
@@ -103,8 +85,6 @@ final class DataManager: ObservableObject {
         }
     }
 
-    /// Fetches all water entries
-    /// - Returns: Array of all water entries
     func fetchAllEntries() async throws -> [WaterEntry] {
         guard let context = modelContext else {
             throw DataError.loadFailed
@@ -121,8 +101,7 @@ final class DataManager: ObservableObject {
         }
     }
 
-    /// Deletes a water entry
-    /// - Parameter entry: The entry to delete
+    
     func deleteEntry(_ entry: WaterEntry) async throws {
         guard let context = modelContext else {
             throw DataError.deleteFailed
@@ -138,18 +117,16 @@ final class DataManager: ObservableObject {
         }
     }
 
-    /// Calculates total water intake for a specific date
-    /// - Parameter date: The date to calculate for
-    /// - Returns: Total amount in milliliters
+    
     func calculateTotalIntake(for date: Date) async throws -> Double {
         let entries = try await fetchEntries(for: date)
         return entries.reduce(0) { $0 + $1.amount }
     }
 
-    // MARK: - Daily Goal Operations
+    
 
-    /// Fetches or creates today's goal
-    /// - Returns: The daily goal for today
+    
+    
     func fetchTodayGoal() async throws -> DailyGoal {
         guard let context = modelContext else {
             throw DataError.loadFailed
@@ -180,7 +157,7 @@ final class DataManager: ObservableObject {
         }
     }
 
-    /// Updates today's goal with current intake
+    
     private func updateTodayGoal() async throws {
         let todayGoal = try await fetchTodayGoal()
         let totalIntake = try await calculateTotalIntake(for: Date())
@@ -193,11 +170,11 @@ final class DataManager: ObservableObject {
         try context.save()
     }
 
-    /// Fetches goals for a date range
-    /// - Parameters:
-    ///   - startDate: Start of the range
-    ///   - endDate: End of the range
-    /// - Returns: Array of daily goals
+    
+    
+    
+    
+    
     func fetchGoals(from startDate: Date, to endDate: Date) async throws -> [DailyGoal] {
         guard let context = modelContext else {
             throw DataError.loadFailed
@@ -222,10 +199,10 @@ final class DataManager: ObservableObject {
         }
     }
 
-    // MARK: - User Profile Operations
+    
 
-    /// Fetches the user profile
-    /// - Returns: The user profile
+    
+    
     func fetchUserProfile() async throws -> UserProfile {
         guard let context = modelContext else {
             throw DataError.loadFailed
@@ -249,8 +226,8 @@ final class DataManager: ObservableObject {
         }
     }
 
-    /// Updates the user profile
-    /// - Parameter profile: The updated profile
+    
+    
     func updateUserProfile(_ profile: UserProfile) async throws {
         guard let context = modelContext else {
             throw DataError.saveFailed
@@ -263,10 +240,7 @@ final class DataManager: ObservableObject {
         }
     }
 
-    // MARK: - Statistics
-
-    /// Calculates the current streak of completed goals
-    /// - Returns: Number of consecutive days with completed goals
+    
     func calculateStreak() async throws -> Int {
         let calendar = Calendar.current
         var streak = 0
@@ -295,8 +269,7 @@ final class DataManager: ObservableObject {
         return streak
     }
 
-    /// Calculates average daily intake for the past week
-    /// - Returns: Average intake in milliliters
+    
     func calculateWeeklyAverage() async throws -> Double {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())

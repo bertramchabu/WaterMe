@@ -1,21 +1,15 @@
-//
-//  Constants.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
 
 import SwiftUI
 
-/// App-wide constants
+
 enum Constants {
-    // MARK: - App Information
+
 
     static let appName = "WaterMe"
     static let appVersion = "1.0.0"
     static let appBuild = "1"
 
-    // MARK: - Design System
+
 
     enum Design {
         // Colors
@@ -50,7 +44,7 @@ enum Constants {
         static let springAnimation: Animation = .spring(response: 0.3, dampingFraction: 0.7)
     }
 
-    // MARK: - Default Values
+
 
     enum Defaults {
         static let defaultWeight: Double = 70.0 // kg
@@ -66,7 +60,7 @@ enum Constants {
         static let quickAddAmountsOz: [Double] = [237, 355, 473, 591] // 8, 12, 16, 20 oz
     }
 
-    // MARK: - Limits
+
 
     enum Limits {
         static let minWeight: Double = 20.0
@@ -79,7 +73,7 @@ enum Constants {
         static let maxWaterAmount: Double = 5000.0
     }
 
-    // MARK: - UserDefaults Keys
+
 
     enum UserDefaultsKeys {
         static let hasCompletedOnboarding = "hasCompletedOnboarding"
@@ -87,7 +81,7 @@ enum Constants {
         static let appLaunchCount = "appLaunchCount"
     }
 
-    // MARK: - Notification Identifiers
+
 
     enum NotificationIdentifiers {
         static let hydrationReminder = "hydration-reminder"
@@ -95,13 +89,13 @@ enum Constants {
         static let motivational = "motivational-reminder"
     }
 
-    // MARK: - HealthKit
+
 
     enum HealthKit {
         static let waterIdentifier = "HKQuantityTypeIdentifierDietaryWater"
     }
 
-    // MARK: - Formatting
+
 
     enum Format {
         static let dateFormat = "MMM d, yyyy"
@@ -110,7 +104,7 @@ enum Constants {
         static let dayFormat = "EEEE"
     }
 
-    // MARK: - Achievements
+
 
     enum Achievements {
         static let streakMilestones = [3, 7, 14, 30, 60, 90, 180, 365]
@@ -130,7 +124,7 @@ enum Constants {
         }
     }
 
-    // MARK: - SF Symbols
+
 
     enum Symbols {
         static let drop = "drop.fill"
