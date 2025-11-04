@@ -8,7 +8,7 @@
 import XCTest
 @testable import WaterMe
 
-/// Unit tests for data models
+// Unit tests for data models
 final class ModelTests: XCTestCase {
 
     // MARK: - WaterEntry Tests
@@ -119,7 +119,7 @@ final class ModelTests: XCTestCase {
         XCTAssertEqual(ozAmounts, [237, 355, 473, 591])
     }
 
-    // MARK: - DailyGoal Tests
+    // DailyGoal Tests
 
     func testDailyGoalInitialization() {
         // Given

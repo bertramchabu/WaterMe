@@ -60,7 +60,7 @@ final class SettingsViewModel: ObservableObject {
         return String(format: "%.0f %@", converted, selectedUnit.rawValue)
     }
 
-    /// Active daily goal (custom or recommended)
+    // Active daily goal (custom or recommended)
     var activeDailyGoal: Double {
         if customGoalEnabled, let customValue = Double(customGoal) {
             return customValue * selectedUnit.toMilliliters

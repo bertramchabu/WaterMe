@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Main home screen showing water intake tracking
+// Main home screen showing water intake tracking
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @State private var showCustomAmountSheet = false
@@ -158,7 +158,7 @@ struct HomeView: View {
             .padding()
             .cardStyle()
 
-            // Remaining card
+            // ...existing code...
             VStack(spacing: 8) {
                 Image(systemName: Constants.Symbols.dropTriangle)
                     .font(.title2)

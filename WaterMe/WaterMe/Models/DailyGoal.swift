@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
 
-/// Represents a daily hydration goal and tracks progress
+// Represents a daily hydration goal and tracks progress
 @Model
 final class DailyGoal: Identifiable {
     var id: UUID

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Animated water glass visualization showing hydration progress
+    // Animated water glass visualization showing hydration progress
 struct WaterGlassView: View {
     let progress: Double // 0.0 to 1.0
     let isCompleted: Bool
@@ -20,7 +20,7 @@ struct WaterGlassView: View {
 
     var body: some View {
         ZStack {
-            // Glass container
+            // ...existing code...
             glassShape
                 .stroke(
                     LinearGradient(

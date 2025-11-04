@@ -1,13 +1,6 @@
-//
-//  WaterMeUITests.swift
-//  WaterMeUITests
-//
-//  Created on 2025-10-13
-//
 
 import XCTest
-
-/// UI tests for main user flows
+// UI tests for main user flows
 final class WaterMeUITests: XCTestCase {
 
     var app: XCUIApplication!
@@ -69,7 +62,7 @@ final class WaterMeUITests: XCTestCase {
         // quickAddButton.tap()
 
         // 2. Verify success message appears
-        // let successMessage = app.staticTexts.containing(NSPredicate(format: "label CONTAINS 'added'"))
+    // ...existing code...
         // XCTAssertTrue(successMessage.firstMatch.exists)
     }
 

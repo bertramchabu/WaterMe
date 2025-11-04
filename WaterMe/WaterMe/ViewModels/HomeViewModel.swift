@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /// ViewModel for the Home screen
-/// Manages water intake tracking and daily goal progress
+// Manages water intake tracking and daily goal progress
 @MainActor
 final class HomeViewModel: ObservableObject {
     // MARK: - Published Properties
@@ -44,7 +44,7 @@ final class HomeViewModel: ObservableObject {
         return min(todayIntake / dailyGoal, 1.0)
     }
 
-    /// Remaining amount to reach goal
+    // Remaining amount to reach goal
     var remainingAmount: Double {
         max(0, dailyGoal - todayIntake)
     }
@@ -215,7 +215,7 @@ final class HomeViewModel: ObservableObject {
         return String(format: "%.0f %@", converted, profile.preferredUnit.rawValue)
     }
 
-    /// Formats the daily goal
+    // Formats the daily goal
     var formattedDailyGoal: String {
         formatAmount(dailyGoal)
     }
@@ -225,7 +225,7 @@ final class HomeViewModel: ObservableObject {
         formatAmount(todayIntake)
     }
 
-    /// Formats remaining amount
+    // Formats remaining amount
     var formattedRemainingAmount: String {
         formatAmount(remainingAmount)
     }
