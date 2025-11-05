@@ -1,10 +1,3 @@
-//
-//  SettingsViewModel.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
-
 import Foundation
 import SwiftUI
 
@@ -12,7 +5,7 @@ import SwiftUI
 /// Manages user profile and app preferences
 @MainActor
 final class SettingsViewModel: ObservableObject {
-    // MARK: - Published Properties
+
 
     @Published var userProfile: UserProfile?
 
@@ -40,13 +33,13 @@ final class SettingsViewModel: ObservableObject {
     @Published var successMessage = ""
     @Published var showResetConfirmation = false
 
-    // MARK: - Dependencies
+
 
     private let dataManager = DataManager.shared
     private let healthKitManager = HealthKitManager.shared
     private let notificationManager = NotificationManager.shared
 
-    // MARK: - Computed Properties
+    
 
     /// Calculated recommended goal based on weight and activity
     var recommendedGoal: Double {
@@ -68,7 +61,7 @@ final class SettingsViewModel: ObservableObject {
         return recommendedGoal
     }
 
-    // MARK: - Initialization
+   
 
     init() {
         healthKitAvailable = healthKitManager.isAvailable
@@ -79,7 +72,7 @@ final class SettingsViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Data Loading
+   
 
     /// Loads user settings
     func loadSettings() async {
@@ -124,7 +117,7 @@ final class SettingsViewModel: ObservableObject {
         healthKitEnabled = healthKitManager.isAuthorized
     }
 
-    // MARK: - Save Settings
+    
 
     /// Saves all settings
     func saveSettings() async {
@@ -189,8 +182,7 @@ final class SettingsViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Notifications
-
+    
     /// Requests notification permission
     func requestNotificationPermission() async {
         do {
@@ -239,7 +231,7 @@ final class SettingsViewModel: ObservableObject {
         }
     }
 
-    // MARK: - HealthKit
+
 
     /// Requests HealthKit permission
     func requestHealthKitPermission() async {
@@ -279,7 +271,6 @@ final class SettingsViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Data Management
 
     /// Shows reset confirmation dialog
     func showResetDialog() {
@@ -318,7 +309,7 @@ final class SettingsViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Validation
+ 
 
     /// Validates weight input
     func validateWeight() -> Bool {
@@ -333,7 +324,6 @@ final class SettingsViewModel: ObservableObject {
         return goalValue > 0
     }
 
-    // MARK: - Error Handling
 
     /// Handles errors
     /// - Parameter error: The error to handle

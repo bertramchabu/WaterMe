@@ -15,7 +15,7 @@ final class WaterMeUITests: XCTestCase {
         app = nil
     }
 
-    // MARK: - App Launch Tests
+    
 
     func testAppLaunches() throws {
         // Verify app launches successfully
@@ -32,7 +32,7 @@ final class WaterMeUITests: XCTestCase {
         XCTAssertTrue(app.tabBars.buttons["Settings"].exists)
     }
 
-    // MARK: - Home Screen Tests
+    
 
     func testHomeScreenElements() throws {
         // Verify home screen key elements exist
@@ -79,7 +79,6 @@ final class WaterMeUITests: XCTestCase {
         // XCTAssertTrue(app.navigationBars["Add Custom Amount"].exists)
     }
 
-    // MARK: - History Screen Tests
 
     func testNavigateToHistory() throws {
         // Navigate to history tab
@@ -110,8 +109,6 @@ final class WaterMeUITests: XCTestCase {
             }
         }
     }
-
-    // MARK: - Settings Screen Tests
 
     func testNavigateToSettings() throws {
         // Navigate to settings tab
@@ -150,7 +147,6 @@ final class WaterMeUITests: XCTestCase {
         }
     }
 
-    // MARK: - Navigation Tests
 
     func testTabNavigation() throws {
         // Test navigating between all tabs
@@ -171,7 +167,6 @@ final class WaterMeUITests: XCTestCase {
         XCTAssertTrue(app.navigationBars["WaterMe"].exists)
     }
 
-    // MARK: - Accessibility Tests
 
     func testAccessibilityLabels() throws {
         // Verify important elements have accessibility labels
@@ -186,7 +181,7 @@ final class WaterMeUITests: XCTestCase {
         XCTAssertTrue(homeButton.isHittable)
     }
 
-    // MARK: - Performance Tests
+
 
     func testAppLaunchPerformance() throws {
         measure(metrics: [XCTApplicationLaunchMetric()]) {

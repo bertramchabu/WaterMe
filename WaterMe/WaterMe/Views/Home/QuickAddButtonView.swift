@@ -1,9 +1,3 @@
-//
-//  QuickAddButtonView.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
 
 import SwiftUI
 
@@ -57,14 +51,14 @@ struct QuickAddButtonView: View {
         .buttonStyle(PlainButtonStyle())
     }
 
-    // MARK: - Formatted Amount
+    
 
     private var formattedAmount: String {
         let converted = unit.convert(from: amount)
         return String(format: "%.0f %@", converted, unit.rawValue)
     }
 
-    // MARK: - Animation
+    
 
     private func animatePress() {
         withAnimation(.easeInOut(duration: 0.1)) {
@@ -79,7 +73,6 @@ struct QuickAddButtonView: View {
     }
 }
 
-// MARK: - Preview
 
 #Preview {
     VStack(spacing: 16) {

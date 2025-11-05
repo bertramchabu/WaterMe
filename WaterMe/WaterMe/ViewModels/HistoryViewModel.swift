@@ -1,9 +1,4 @@
-//
-//  HistoryViewModel.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
+
 
 import Foundation
 import SwiftUI
@@ -27,8 +22,6 @@ enum HistoryPeriod: String, CaseIterable {
 /// Manages historical data and statistics
 @MainActor
 final class HistoryViewModel: ObservableObject {
-    // MARK: - Published Properties
-
     @Published var selectedPeriod: HistoryPeriod = .week
     @Published private(set) var goals: [DailyGoal] = []
     @Published private(set) var entries: [WaterEntry] = []
@@ -44,11 +37,11 @@ final class HistoryViewModel: ObservableObject {
     @Published var showError = false
     @Published var errorMessage = ""
 
-    // MARK: - Dependencies
+  
 
     private let dataManager = DataManager.shared
 
-    // MARK: - Computed Properties
+   
 
     /// Completion rate as percentage
     var completionRate: Double {
@@ -72,15 +65,13 @@ final class HistoryViewModel: ObservableObject {
         goals.first?.goalAmount ?? 2000
     }
 
-    // MARK: - Initialization
+    
 
     init() {
         Task {
             await loadData()
         }
     }
-
-    // MARK: - Data Loading
 
     /// Loads history data for selected period
     func loadData() async {
@@ -157,7 +148,7 @@ final class HistoryViewModel: ObservableObject {
         return filledGoals.sorted { $0.date < $1.date }
     }
 
-    // MARK: - Statistics
+    
 
     /// Calculates all statistics
     private func calculateStatistics() async {
@@ -202,7 +193,7 @@ final class HistoryViewModel: ObservableObject {
         return maxStreak
     }
 
-    // MARK: - Period Selection
+  
 
     /// Changes the selected period and reloads data
     /// - Parameter period: New period to display
@@ -211,14 +202,14 @@ final class HistoryViewModel: ObservableObject {
         await loadData()
     }
 
-    // MARK: - Refresh
+    
 
     /// Refreshes the data
     func refresh() async {
         await loadData()
     }
 
-    // MARK: - Export
+    
 
     /// Exports data as CSV string
     /// - Returns: CSV formatted string
@@ -257,7 +248,7 @@ final class HistoryViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Formatting
+    
 
     /// Formats amount for display
     /// - Parameter amount: Amount in milliliters
@@ -276,7 +267,7 @@ final class HistoryViewModel: ObservableObject {
         formatAmount(totalIntake)
     }
 
-    // MARK: - Error Handling
+
 
     /// Handles errors
     /// - Parameter error: The error to handle
@@ -286,7 +277,7 @@ final class HistoryViewModel: ObservableObject {
     }
 }
 
-// MARK: - Date Extension
+
 extension Date {
     /// Returns ISO8601 formatted string
     func ISO8601Format() -> String {

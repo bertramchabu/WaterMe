@@ -1,9 +1,3 @@
-//
-//  ModelTests.swift
-//  WaterMeTests
-//
-//  Created on 2025-10-13
-//
 
 import XCTest
 @testable import WaterMe
@@ -11,7 +5,7 @@ import XCTest
 // Unit tests for data models
 final class ModelTests: XCTestCase {
 
-    // MARK: - WaterEntry Tests
+
 
     func testWaterEntryInitialization() {
         // Given
@@ -55,8 +49,7 @@ final class ModelTests: XCTestCase {
         XCTAssertEqual(dateOnly, expectedDate)
     }
 
-    // MARK: - UserProfile Tests
-
+    
     func testUserProfileDefaultInitialization() {
         // When
         let profile = UserProfile()
@@ -216,7 +209,7 @@ final class ModelTests: XCTestCase {
         XCTAssertFalse(yesterdayGoal.isToday)
     }
 
-    // MARK: - ActivityLevel Tests
+
 
     func testActivityLevelMultipliers() {
         XCTAssertEqual(ActivityLevel.sedentary.multiplier, 30.0)
@@ -225,8 +218,6 @@ final class ModelTests: XCTestCase {
         XCTAssertEqual(ActivityLevel.veryActive.multiplier, 45.0)
         XCTAssertEqual(ActivityLevel.extraActive.multiplier, 50.0)
     }
-
-    // MARK: - WaterUnit Tests
 
     func testWaterUnitConversion() {
         // Test milliliters (no conversion)

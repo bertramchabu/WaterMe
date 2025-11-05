@@ -1,9 +1,4 @@
-//
-//  HomeView.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
+
 
 import SwiftUI
 
@@ -77,7 +72,7 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Header Section
+
 
     private var headerSection: some View {
         HStack {
@@ -114,8 +109,7 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Water Glass Section
-
+    
     private var waterGlassSection: some View {
         VStack(spacing: 16) {
             WaterGlassView(
@@ -136,7 +130,7 @@ struct HomeView: View {
         .padding(.vertical)
     }
 
-    // MARK: - Progress Summary Section
+    
 
     private var progressSummarySection: some View {
         HStack(spacing: 16) {
@@ -178,7 +172,7 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Quick Add Section
+    
 
     private var quickAddSection: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -227,7 +221,7 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Entries Section
+
 
     private var entriesSection: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -294,7 +288,7 @@ struct HomeView: View {
         .cardStyle()
     }
 
-    // MARK: - Custom Amount Sheet
+
 
     private var customAmountSheet: some View {
         NavigationStack {
@@ -346,7 +340,7 @@ struct HomeView: View {
         .presentationDetents([.medium])
     }
 
-    // MARK: - Success Banner
+  
 
     private var successBanner: some View {
         Text(viewModel.successMessage)
@@ -366,7 +360,7 @@ struct HomeView: View {
     }
 }
 
-// MARK: - Preview
+
 
 #Preview {
     HomeView()

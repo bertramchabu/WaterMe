@@ -1,9 +1,4 @@
-//
-//  ViewModelTests.swift
-//  WaterMeTests
-//
-//  Created on 2025-10-13
-//
+
 
 import XCTest
 @testable import WaterMe
@@ -12,7 +7,6 @@ import XCTest
 @MainActor
 final class ViewModelTests: XCTestCase {
 
-    // MARK: - HomeViewModel Tests
 
     func testHomeViewModelInitialization() {
         // When
@@ -88,7 +82,6 @@ final class ViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.progressPercentage, "50%")
     }
 
-    // MARK: - SettingsViewModel Tests
 
     func testSettingsViewModelInitialization() {
         // When
@@ -176,7 +169,7 @@ final class ViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.validateCustomGoal())
     }
 
-    // MARK: - HistoryViewModel Tests
+ 
 
     func testHistoryViewModelInitialization() {
         // When

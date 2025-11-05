@@ -1,9 +1,4 @@
-//
-//  ChartView.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
+
 
 import SwiftUI
 import Charts
@@ -73,8 +68,7 @@ struct WaterIntakeChartView: View {
         .cardStyle()
     }
 
-    // MARK: - X-Axis Configuration
-
+    
     private var xAxisStride: Int {
         switch period {
         case .week:
@@ -87,7 +81,7 @@ struct WaterIntakeChartView: View {
     }
 }
 
-// MARK: - Preview
+
 
 #Preview {
     let calendar = Calendar.current

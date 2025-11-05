@@ -1,9 +1,3 @@
-//
-//  HistoryView.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
 
 import SwiftUI
 
@@ -85,7 +79,6 @@ struct HistoryView: View {
         }
     }
 
-    // MARK: - Period Selector
 
     private var periodSelector: some View {
         Picker("Period", selection: $viewModel.selectedPeriod) {
@@ -101,7 +94,7 @@ struct HistoryView: View {
         }
     }
 
-    // MARK: - Chart Section
+
 
     private var chartSection: some View {
         WaterIntakeChartView(
@@ -111,7 +104,7 @@ struct HistoryView: View {
         )
     }
 
-    // MARK: - Statistics Section
+
 
     private var statisticsSection: some View {
         VStack(spacing: 16) {
@@ -175,7 +168,7 @@ struct HistoryView: View {
         .cardStyle()
     }
 
-    // MARK: - Streak Section
+  
 
     private var streakSection: some View {
         VStack(spacing: 16) {
@@ -216,7 +209,7 @@ struct HistoryView: View {
         }
     }
 
-    // MARK: - Best Day Section
+
 
     private func bestDaySection(_ goal: DailyGoal) -> some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -247,7 +240,7 @@ struct HistoryView: View {
         }
     }
 
-    // MARK: - Share Data
+    
 
     private func shareData() {
         if let url = viewModel.shareData() {
@@ -257,7 +250,7 @@ struct HistoryView: View {
     }
 }
 
-// MARK: - Share Sheet
+
 
 struct ShareSheet: UIViewControllerRepresentable {
     let items: [Any]
@@ -273,7 +266,7 @@ struct ShareSheet: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
 
-// MARK: - Preview
+
 
 #Preview {
     HistoryView()

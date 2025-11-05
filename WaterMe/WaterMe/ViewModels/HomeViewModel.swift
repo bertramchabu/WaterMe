@@ -1,18 +1,13 @@
-//
-//  HomeViewModel.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
 
 import Foundation
 import SwiftUI
 
 /// ViewModel for the Home screen
+
 // Manages water intake tracking and daily goal progress
 @MainActor
 final class HomeViewModel: ObservableObject {
-    // MARK: - Published Properties
+    
 
     @Published private(set) var todayIntake: Double = 0
     @Published private(set) var dailyGoal: Double = 2000
@@ -30,13 +25,13 @@ final class HomeViewModel: ObservableObject {
     @Published var showAddWaterSheet = false
     @Published var customAmount = ""
 
-    // MARK: - Dependencies
+    
 
     private let dataManager = DataManager.shared
     private let healthKitManager = HealthKitManager.shared
     private let notificationManager = NotificationManager.shared
 
-    // MARK: - Computed Properties
+    
 
     /// Progress percentage (0.0 to 1.0)
     var progress: Double {
@@ -64,7 +59,7 @@ final class HomeViewModel: ObservableObject {
         userProfile?.quickAddAmounts ?? [100, 250, 330, 500]
     }
 
-    // MARK: - Initialization
+
 
     init() {
         Task {
@@ -72,7 +67,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Data Loading
+   
 
     /// Loads all necessary data for the home screen
     func loadData() async {
@@ -101,7 +96,7 @@ final class HomeViewModel: ObservableObject {
         await loadData()
     }
 
-    // MARK: - Add Water
+   
 
     /// Adds water intake with a predefined amount
     /// - Parameter amount: Amount in milliliters
@@ -160,7 +155,7 @@ final class HomeViewModel: ObservableObject {
         showAddWaterSheet = false
     }
 
-    // MARK: - Delete Entry
+    
 
     /// Deletes a water entry
     /// - Parameter entry: The entry to delete
@@ -180,7 +175,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Goal Completion
+    
 
     /// Celebrates goal completion with animation and notification
     private func celebrateGoalCompletion() async {
@@ -201,7 +196,7 @@ final class HomeViewModel: ObservableObject {
         showSuccess = false
     }
 
-    // MARK: - Formatting
+   
 
     /// Formats amount based on user preference
     /// - Parameter amount: Amount in milliliters
@@ -230,8 +225,7 @@ final class HomeViewModel: ObservableObject {
         formatAmount(remainingAmount)
     }
 
-    // MARK: - Error Handling
-
+   
     /// Handles errors and displays appropriate message
     /// - Parameter error: The error to handle
     private func handleError(_ error: Error) {

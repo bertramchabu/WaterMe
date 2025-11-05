@@ -1,10 +1,3 @@
-//
-//  WaterGlassView.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
-
 import SwiftUI
 
     // Animated water glass visualization showing hydration progress
@@ -55,13 +48,13 @@ struct WaterGlassView: View {
         }
     }
 
-    // MARK: - Glass Shape
+   
 
     private var glassShape: some Shape {
         TrapezoidShape()
     }
 
-    // MARK: - Water Fill
+   
 
     private var waterFill: some View {
         GeometryReader { geometry in
@@ -91,7 +84,7 @@ struct WaterGlassView: View {
         }
     }
 
-    // MARK: - Glass Shimmer
+
 
     private var glassShimmer: some View {
         LinearGradient(
@@ -107,7 +100,6 @@ struct WaterGlassView: View {
         .offset(x: -20)
     }
 
-    // MARK: - Percentage Label
 
     private var percentageLabel: some View {
         VStack(spacing: 4) {
@@ -128,7 +120,7 @@ struct WaterGlassView: View {
         }
     }
 
-    // MARK: - Wave Animation
+ 
 
     private func startWaveAnimation() {
         withAnimation(
@@ -140,7 +132,7 @@ struct WaterGlassView: View {
     }
 }
 
-// MARK: - Trapezoid Shape (Glass)
+
 
 /// Custom shape for the water glass
 struct TrapezoidShape: Shape {
@@ -170,7 +162,7 @@ struct TrapezoidShape: Shape {
     }
 }
 
-// MARK: - Wave Shape
+
 
 /// Animated wave shape for water effect
 struct WaveShape: Shape {
@@ -209,7 +201,7 @@ struct WaveShape: Shape {
     }
 }
 
-// MARK: - Preview
+
 
 #Preview {
     VStack(spacing: 40) {

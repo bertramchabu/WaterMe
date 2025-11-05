@@ -1,9 +1,3 @@
-//
-//  SettingsView.swift
-//  WaterMe
-//
-//  Created on 2025-10-13
-//
 
 import SwiftUI
 
@@ -66,7 +60,6 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - Profile Section
 
     private var profileSection: some View {
         Section("Profile") {
@@ -108,7 +101,7 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - Goal Section
+
 
     private var goalSection: some View {
         Section {
@@ -139,7 +132,7 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - Notification Section
+
 
     private var notificationSection: some View {
         Section {
@@ -185,7 +178,6 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - HealthKit Section
 
     private var healthKitSection: some View {
         Section {
@@ -213,8 +205,6 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - About Section
-
     private var aboutSection: some View {
         Section("About") {
             HStack {
@@ -231,17 +221,13 @@ struct SettingsView: View {
                     .foregroundColor(.secondary)
             }
 
-            Link(destination: URL(string: "https://github.com")!) {
+            Link(destination: URL(string: "https://github.com/bertramchabu/WaterMe.git")!) {
                 Label("View on GitHub", systemImage: "link")
             }
 
-            Link(destination: URL(string: "https://example.com/privacy")!) {
-                Label("Privacy Policy", systemImage: "hand.raised")
-            }
         }
     }
 
-    // MARK: - Data Section
 
     private var dataSection: some View {
         Section {
@@ -257,7 +243,6 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - Success Banner
 
     private var successBanner: some View {
         Text(viewModel.successMessage)
@@ -277,7 +262,6 @@ struct SettingsView: View {
     }
 }
 
-// MARK: - Preview
 
 #Preview {
     SettingsView()
